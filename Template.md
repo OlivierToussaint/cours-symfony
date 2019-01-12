@@ -1,3 +1,7 @@
+---
+extends: extends
+---
+
 ## Twig 
 
 Nous allons au fichier précréé `blog/index.html.twig` par maker
