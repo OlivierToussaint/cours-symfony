@@ -1,6 +1,6 @@
 ## Twig 
 
-Twig est un langage pour créer des templates html, on va pouvoir séparer notre code Html de notre Controller. Grâce à ce dernier, nous pourrons passer des paramètres à twig et nous pourrons y accéder avec ```{{ }}```, ainsi que des boucles ou des conditions telles que ```{% if %}``` ou ```{% for %}```
+Twig est un langage pour créer des templates html, on va pouvoir séparer notre code Html de notre Controller. Grâce à ce dernier, nous pourrons passer des paramètres à twig et nous pourrons y accéder avec `{{ }}`, ainsi que des boucles ou des conditions telles que `{% if %}` ou `{% for %}`
 
 Nous allons au fichier précréé `blog/index.html.twig` par maker
 
@@ -53,6 +53,6 @@ Ca donne ça
 
 C'est dans ce fichier que nous allons créer nos blocks que l'on remplira par des données.
 
-Plus tard nous pourrons avoir besoin des variables globales telles que ```{{ app.request }}```, ```{{ app.session }}```, ```{{app.user }}```
+Plus tard nous pourrons avoir besoin des variables globales telles que `{{ app.request }}`, `{{ app.session }}`, `{{app.user }}`
 
 Twig à une documentation juste pour lui <https://twig.symfony.com/doc/2.x/>.
