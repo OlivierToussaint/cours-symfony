@@ -2,8 +2,8 @@
 
 Nous allons dans un premier temps ouvrir la console. Nous allons à la racine du dossier qui va nous servir pour notre exercice:
 
-```
- ~> composer create-projet symfony/website-skeleton blog
+```bash
+# composer create-projet symfony/website-skeleton blog
 ```
 
 À partir de ce moment-là nous avons la structure de notre futur projet symfony.
@@ -33,9 +33,9 @@ Regardons ça de plus près:
 
 Nous allons ensuite démarrer notre serveur de développement avec deux commandes, soit le serveur interne de php, soit le raccoursie par symfony
 
-```
- ~> php -S 127.0.0.1:8000 -t public
- ~> php bin/console server:run
+```bash
+# php -S 127.0.0.1:8000 -t public
+# php bin/console server:run
 ```
 
 Nous accédons à la page qui nous prévient que nous avons bien installé la dernière version de symfony.

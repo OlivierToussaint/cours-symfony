@@ -5,7 +5,7 @@ Le rôle du controller va être de nous retourner une reponse par rapport à une
 Nous allons créer un controller avec maker, symfony va nous demander de lui donner un nom. Nous le nommerons BlogController tout simplement.
 
 ```bash
- # php bin/console make:controller
+# php bin/console make:controller
 ```
 
 Une fois cette commande faite nous pouvons observer qu’il crée deux fichiers: un fichier dans src/Controller et un autre dans ce nouveau dossier qui est template.

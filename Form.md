@@ -4,12 +4,12 @@ Documentation : https://symfony.com/doc/current/forms.html
 
 Nous pouvons créer des formulaires via le template ou bien nous pouvons laisser symfony faire tout ça.
 
-```
- ~> php bin/console make:form
+```bash
+# php bin/console make:form
 ```
 Nous allons lui donner l’entity sur lequel elle va se calquer, puis ensuite nous choisirons de rajouter le bouton submit ou pas dans ce formType.
 
-```
+```php
 public function buildForm(FormBuilderInterface $builder, array $options)
 {
     $builder
@@ -20,7 +20,7 @@ public function buildForm(FormBuilderInterface $builder, array $options)
 ```
 Nous pourrions dans ce fichier personnaliser les labels ou autres. Pour tout cela nous irons lire la documentation
 
-```
+```php
 public function buildForm(FormBuilderInterface $builder, array $options)
 {
     $builder
@@ -34,7 +34,7 @@ public function buildForm(FormBuilderInterface $builder, array $options)
 
 Ainsi, nous allons appeler ce ArticleType dans notre controller:
 
-```
+```php
 /**
  * @Route("/home", name="home")
  */
@@ -64,13 +64,13 @@ public function index(Request $request)
 ----
 Nous initialiserons la création du formulaire avec:
 
-``` 
+``` php
        $form = $this->createForm(PostType::class, $post);
 ```
 
 On peut remarquer qu'il fait appel à PostType qui est stocké dans un nouveau répertoire Form dans notre src:
 
-```
+```php
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -86,8 +86,8 @@ On peut remarquer qu'il fait appel à PostType qui est stocké dans un nouveau r
 
 Ce FormType sert à définir les champs qui vont apparaître dans le formulaire, on pourra le générer avec la commande suivante:
 
-```
-php bin/console make:form
+```bash
+# php bin/console make:form
 ```
 
 Il faudra la lier à l'entity souhaitée:
@@ -95,7 +95,7 @@ Il faudra la lier à l'entity souhaitée:
 
 Malheureusement pour nous, il nous fera pas en automatique la relation ManyToOne, nous allons donc nous en charger pour faire un select sur les authors
 
-```
+```php
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -117,7 +117,7 @@ Ce `PostType` va nous servir pour l'édition et la création de l'objet `Post` d
 
 ----
 
-```
+```php
         $form->handleRequest($request);
 ```
 
@@ -127,7 +127,7 @@ On injecte tout simplement l'object `Request` pour qu'il fasse le travail tout s
 
 ----
 
-```
+```php
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($post);
@@ -151,7 +151,7 @@ Je vous renvoie à la documentation qui est vaste <https://symfony.com/doc/curre
 
 ----
 
-```
+```php
         return $this->render('post/new.html.twig', [
             'post' => $post,
             'form' => $form->createView(),
@@ -162,7 +162,7 @@ Le `$form->createView()` servira à construire notre formulaire dans twig qui es
 
 Dans le twig 
 
-```
+```twig
 {{ form_start(form) }}
 {{ form_errors(form) }}
 {{ form_widget(form) }}
@@ -172,7 +172,7 @@ Dans le twig
 
 On pourrait personnalisé les forms en détaillant le tout
 
-```
+```twig
 {{ form_start(form) }}
 {{ form_errors(form) }}
 {{ form_widget(form.title) }}

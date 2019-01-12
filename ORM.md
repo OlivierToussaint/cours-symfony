@@ -22,13 +22,13 @@ Le but de cet excercice est de faire un blog, ainsi nous allons créer deux enti
 ### Création des entités
 Nous allons créer une entité avec la commande suivante :
 
-```
-~> php bin/console make:entity
+```bash
+# php bin/console make:entity
 ```
 
 La console va nous poser un certain nombre de questions comme nous pouvons le voir ci-dessous:
 
-```
+```bash
 Class name of the entity to create or update (e.g. BraveElephant):
  > Article
 
@@ -77,7 +77,7 @@ La console a créé deux fichiers:
 
 Le fichier dans `Entity` sera notre objet avec des getters et setters
 
-```
+```php
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -144,7 +144,7 @@ Je vous conseille d’aller voir la documentation pour voir les autres paramètr
 
 L’autre fichier dans `Repository` permettra de faire nos appels spécifiques à la base de données.
 
-```
+```php
 namespace App\Repository;
 
 use App\Entity\ Article;
@@ -202,15 +202,15 @@ Pour synchroniser notre base de donnée à notre entité, il va faire faire des 
 
 Nous n'avons plus qu'a mettre à jour notre base de donnée
 
-```
- ~> php bin/console make:migration
- ~> php bin/console doctrine:migrations:migrate 
+```php
+# php bin/console make:migration
+# php bin/console doctrine:migrations:migrate 
 ```
 
 ou 
 
-```
- ~>  php bin/console doctrine:schema:update —force
+```php
+# php bin/console doctrine:schema:update —force
 ```
 
 A chaque modification dans l'entité nous appliquerons ces commandes

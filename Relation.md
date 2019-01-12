@@ -6,7 +6,7 @@ C'est le même procédé que nous avons utilisez juste avant.
 
 Je souhaite que dans l’entité category nous n’ayons que la variable name, au final notre entité devrait ressembler à cela sans les getters et setters :
 
-```
+```php
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
  */
@@ -30,7 +30,7 @@ Nous allons ensuite mettre à jour l'entité Article
 
 Pour ce faire nous allons toujours passer par la même commande qui est `php bin/console make:entity`
 
-```
+```bash
  Class name of the entity to create or update (e.g. GrumpyPuppy):
  > Article
 
@@ -82,20 +82,20 @@ What type of relationship is this?
 
 Nous n'avons plus qu'a mettre à jour notre base de donnée
 
-```
- ~> php bin/console make:migration
- ~> php bin/console doctrine:migrations:migrate 
+```bash
+# php bin/console make:migration
+# php bin/console doctrine:migrations:migrate 
 ```
 
 ou 
 
-```
- ~>  php bin/console doctrine:schema:update —force
+```bash
+# php bin/console doctrine:schema:update —force
 ```
 
 Il ne nous reste plus qu'a mettre à jour notre formulaire, rendons nous sur le `Form/ArticleType.php`
 
-```
+```php
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder

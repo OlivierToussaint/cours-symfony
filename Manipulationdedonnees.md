@@ -9,15 +9,15 @@ Nous allons supprimer ce que l'on a déjà fait, c'est à dire le `Controller/Ar
 
 puis nous allons repasser par make pour faire notre crud
 
-```
- ~> php bin/console make:crud
+```bash
+# php bin/console make:crud
 ```
 
 Il va se faire à partir d'une entité existante, dans notre cas Article
 
 Nous pouvons voir la création des différentes méthodes dans notre controller
 
-```
+```php
 namespace App\Controller;
 
 use App\Entity\Article;
@@ -118,7 +118,7 @@ class ArticleController extends AbstractController
 
 Après avoir créer nos fichiers, nous allons nous intéresser aux nouvelles fonctions qui sont: `new`, `edit`, `delete`
 
-```
+```php
 	/**
      * @Route("/new", name="article_new", methods={"GET","POST"})
      */
