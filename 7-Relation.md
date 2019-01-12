@@ -30,7 +30,7 @@ Nous allons ensuite mettre à jour l'entité Article
 
 Pour ce faire nous allons toujours passer par la même commande qui est `php bin/console make:entity`
 
-```bash
+```
  Class name of the entity to create or update (e.g. GrumpyPuppy):
  > Article
 
