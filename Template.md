@@ -1,4 +1,7 @@
-## Twig
+## Twig 
+
+Nous allons au fichier précréé `blog/index.html.twig` par maker
+
 
 C'est dans ce fichier que nous allons créer nos blocks que l'on remplira par des données.
 
