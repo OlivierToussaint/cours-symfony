@@ -28,7 +28,7 @@ Nous allons créer une entité avec la commande suivante :
 
 La console va nous poser un certain nombre de questions comme nous pouvons le voir ci-dessous:
 
-```bash
+```
 Class name of the entity to create or update (e.g. BraveElephant):
  > Article
 
@@ -147,7 +147,7 @@ L’autre fichier dans `Repository` permettra de faire nos appels spécifiques �
 ```php
 namespace App\Repository;
 
-use App\Entity\ Article;
+use App\Entity\Article;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
