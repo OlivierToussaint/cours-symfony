@@ -39,7 +39,3 @@ Nous allons ensuite démarrer notre serveur de développement avec deux commande
 ```
 
 Nous accédons à la page qui nous prévient que nous avons bien installé la dernière version de symfony.
-
-
-
-
