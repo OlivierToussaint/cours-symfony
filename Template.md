@@ -35,6 +35,7 @@ Pour le blog nous allons la remanier, nous allons y rajouter bootstrap, mais jus
 
 Ca donne ça 
 
+{% raw %} 
 ```twig
 <!DOCTYPE html>
 <html>
@@ -50,6 +51,8 @@ Ca donne ça
     </body>
 </html>
 ```
+{% endraw %}
+
 
 C'est dans ce fichier que nous allons créer nos blocks que l'on remplira par des données.
 
