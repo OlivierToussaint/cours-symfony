@@ -2,8 +2,9 @@
 
 Nous allons au fichier précréé `blog/index.html.twig` par maker
 
+{% raw %} 
 ```twig
-{{"{%"}} extends 'base.html.twig' {{"%}"}}
+{% extends 'base.html.twig' %}
 
 {% block title %}Hello {{ controller_name }}!{% endblock %}
 
@@ -24,7 +25,8 @@ Nous allons au fichier précréé `blog/index.html.twig` par maker
 </div>
 {% endblock %}
 ```
-
+{% endraw %}
+ 
 Nous retrouvons notre variable qui est `controller_name` qui est entourée d'accolade.
 
 Nous pouvons observer différents `block`, c'est ce que l'on va trouver dans le fichier qu'il extend `base.html.twig`. Dans ce fichier il y a tout simplement la structure de base de notre site.
