@@ -1,17 +1,9 @@
----
-extends: extends
----
-
 ## Twig 
 
 Nous allons au fichier précréé `blog/index.html.twig` par maker
 
 ```twig
-{% extends 'base.html.twig' %}
 
-{% block title %}Hello {{ controller_name }}!{% endblock %}
-
-{% block body %}
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
@@ -26,7 +18,6 @@ Nous allons au fichier précréé `blog/index.html.twig` par maker
         <li>Your template at <code><a href="{{ 'templates/author/index.html.twig'|file_link(0) }}">templates/author/index.html.twig</a></code></li>
     </ul>
 </div>
-{% endblock %}
 ```
 
 Nous retrouvons notre variable qui est `controller_name` qui est entourée d'accolade.
