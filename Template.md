@@ -2,7 +2,7 @@
 
 Nous allons au fichier précréé `blog/index.html.twig` par maker
 
-```
+```twig
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello {{ controller_name }}!{% endblock %}
@@ -27,12 +27,13 @@ Nous allons au fichier précréé `blog/index.html.twig` par maker
 
 Nous retrouvons notre variable qui est `controller_name` qui est entourée d'accolade.
 
+Nous pouvons observer différents `block`, c'est ce que l'on va trouver dans le fichier qu'il extend `base.html.twig`. Dans ce fichier il y a tout simplement la structure de base de notre site.
 
 Pour le blog nous allons la remanier, nous allons y rajouter bootstrap, mais juste le css.
 
 Ca donne ça 
 
-```
+```twig
 <!DOCTYPE html>
 <html>
     <head>
