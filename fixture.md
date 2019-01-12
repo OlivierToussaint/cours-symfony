@@ -166,3 +166,35 @@ Une fois notre fichier rempli nous allons charger ces données en base.
 ```
 
 Nous pouvons voir que notre base est remplie.
+
+
+
+
+De ce fait il faudrait rajouter quelque chose dans notre `AppFixtures`, le password.
+
+Pour encoder le password nous aurons besoin d'injecter `UserPasswordEncoderInterface` puis d'utiliser `encodePassword`
+
+Cela nous donnera:
+
+```
+public function __construct(UserPasswordEncoderInterface $encoder)
+    {
+        $this->encoder = $encoder;
+    }
+
+    public function load(ObjectManager $manager)
+    {
+        $author = new Author();
+        $author->setEmail('john@doe.fr');
+        $password = $this->encoder->encodePassword($author, 'test');
+        $author->setPassword($password);
+        $author->setName('John Doe');
+        $author->setUsername('john doe');
+        $manager->persist($author);
+```
+
+Nous rechargeons nos fixtures avec:
+
+```
+php bin/console d:f:l
+```

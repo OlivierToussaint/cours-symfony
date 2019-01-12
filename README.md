@@ -1,6 +1,6 @@
-# Cours symfony
+# Cours symfony - TP
 
-Le sommaire :
+Voici le dérouler de mon cours / TP que je fais avec mes élèves :
 
 ### [Installation de symfony](1-Installation.md)
 ### [Le controller](2-Controlleur.md)
@@ -9,6 +9,6 @@ Le sommaire :
 ### [Manipulation de donnée](5-Manipulationdedonnees.md)
 ### [Comment utiliser les formulaires](6-Form.md)
 ### [Créer une relation](7-Relation.md)
-
---
-#### [Cours complet](complet.md)
+### [Intégrer bootstrap](8-Bootstrap.md)
+### [La sécurité et son initilisation](9-Securite.md)
+### [Envoyer un email en utilise EventDispatcher](10-Event.md)

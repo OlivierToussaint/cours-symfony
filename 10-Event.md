@@ -7,7 +7,9 @@ Dans le cadre du blog, on va envoyer un message de bienvenue.
 
 Nous allons commencer par télécharger switchmailer qui va nous permettre d'envoyer un email
 
-```composer req mailer```
+```bash
+# composer req mailer
+```
 
 Nous irons configurer notre email dans notre environement ```.env```
 
@@ -15,7 +17,7 @@ Une fois le service configurer on va mettre en place notre évènement nous allo
 
 Dedans nous allons juste déclarer des constantes de nos events
 
-```
+```php
 namespace App;
 
 final class Events
@@ -26,8 +28,8 @@ final class Events
 
 On peut passer par le maker même si il faudra faire des retouches
 
-```
-php bin/console make:subscriber
+```bash
+p# hp bin/console make:subscriber
 
   What event do you want to subscribe to?:
  > user.registered
@@ -39,8 +41,8 @@ Nous allons lui mettre notre constantes, et nous allons créer une fonction qui 
 
 ça va nous donner le fichier suivant :
 
-```
-use App\Entity\Author;
+```php
+use App\Entity\User;
 use App\Events;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
@@ -56,12 +58,12 @@ class RegisterSubscriber implements EventSubscriberInterface
 
     public function onUserRegistered(GenericEvent $event)
     {
-        $author = $event->getSubject();
+        $user = $event->getSubject();
 
-        if ($author instanceof Author) {
+        if ($user instanceof User) {
             $message = (new \Swift_Message("Bienvenue"))
                 ->setFrom('olivier@toussaint.fr')
-                ->setTo($author->getEmail())
+                ->setTo($user->getEmail())
                 ->setBody("Vous venez de vous enregistrez sur notre site");
             $this->mailer->send($message);
         }
@@ -90,7 +92,7 @@ services:
 
 Du coup nous passerons dans notre construct le ```$sender```
 
-```
+```php
     private $mailer;
 
     private $sender;
@@ -107,7 +109,7 @@ Du coup nous passerons dans notre construct le ```$sender```
 
         if ($author instanceof Author) {
             $message = (new \Swift_Message("Bienvenue"))
-                ->setFrom('test@toussaint.fr')
+                ->setFrom($this->sender)
                 ->setTo($author->getEmail())
                 ->setBody("Vous venez de vous enregistrez sur notre site");
             $this->mailer->send($message);
@@ -115,43 +117,12 @@ Du coup nous passerons dans notre construct le ```$sender```
     }
 ```
 
-Il ne reste plus qu'a faire notre formulaire d'enregistrement, et je vous laisserez la faire :-D.
+Nous allons le rajouter dans notre SecurityController deux lignes
 
-Néamoins pour enregistrer un user il y a des petites choses à savoir.
-
-```
-/**
-     * @Route("/register", name="register")
-     */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, EventDispatcherInterface $eventDispatcher)
-    {
-        $author = new Author();
-
-        $form = $this->createForm(AuthorType::class, $author);
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $author->setPassword($passwordEncoder->encodePassword($author, $author->getPassword()));
-            $entityMananger = $this->getDoctrine()->getManager();
-            $entityMananger->persist($author);
-            $entityMananger->flush();
-
-            $event = new GenericEvent($author);
-            $eventDispatcher->dispatch(Events::USER_REGISTERED, $event);
-            return $this->redirectToRoute('login');
-        }
-
-        return $this->render('security/register.html.twig', [
-            'form' => $form->createView()
-        ]);
-    }
-```
-Nous allons utiliser les fonctions de ```UserPasswordEncoderInterface``` pour encoder notre password en base avec la méthode défini dans ```config/security.yaml``` (ici bcrypt).
-
-J'ai rajouté dans l'entity le fait que l'objet author à part defaut le role ```ROLE_USER```
-
-Revenons à notre Event.
+```php
+$event = new GenericEvent($user);
+$eventDispatcher->dispatch(Events::USER_REGISTERED, $event);
+ ```
 
 Nous utiliser ```GenericEvent``` pour passer l'auteur car notre évènement est simple, sinon nous aurions créer un Objet Event plus complexe comme l'exemple dans la doc <https://symfony.com/doc/current/components/event_dispatcher.html>.
 
