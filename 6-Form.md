@@ -111,7 +111,7 @@ Malheureusement pour nous, il nous fera pas en automatique la relation ManyToOne
     }
 ```
 
-J'ai rajouté des spécifications au champs author, je pourrais faire de même sur tous les champs si j'en avais envie.
+J'ai rajouté des spécifications au champ user, je pourrais faire de même sur tous les champs si j'en avais envie.
 
 Ce `PostType` va nous servir pour l'édition et la création de l'objet `Post` dans notre base.
 
@@ -170,7 +170,7 @@ Dans le twig
 {{ form_end(form) }}
 ```
 
-On pourrait personnalisé les forms en détaillant le tout
+On pourrait personnaliser les forms en détaillant le tout
 
 ```twig
 {{ form_start(form) }}

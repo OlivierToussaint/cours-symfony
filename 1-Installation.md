@@ -7,7 +7,7 @@ Nous allons dans un premier temps ouvrir la console. Nous allons à la racine du
 ```
 
 À partir de ce moment-là nous avons la structure de notre futur projet symfony.
-Regardons ça de plus près:
+Regardons cela de plus près:
 
 * **Bin** : On y trouve le fichier console & phpunit, nous reviendrons très vite sur l’utilisation de console.
 
@@ -19,7 +19,7 @@ Regardons ça de plus près:
 
 * **Templates** : On y trouve tous les fichiers de twig.
 
-* **Translations** : On y trouve tous fichiers de langue seront ici.
+* **Translations** : Tous fichiers de langue seront ici.
 
 * **Var** : On y trouve les fichiers de cache et vos logs.
 
@@ -31,7 +31,7 @@ Regardons ça de plus près:
 
 * **composer.json** : Tous les paquets dont nous avons besoin pour notre projet.
 
-Nous allons ensuite démarrer notre serveur de développement avec deux commandes, soit le serveur interne de php, soit le raccoursie par symfony
+Nous allons ensuite démarrer notre serveur de développement avec deux commandes, soit le serveur interne de php, soit le raccourci par symfony
 
 ```bash
 # php -S 127.0.0.1:8000 -t public

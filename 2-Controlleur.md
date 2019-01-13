@@ -1,6 +1,6 @@
 ## Le controller
 
-Le rôle du controller va être de nous retourner une reponse par rapport à une route ou une requête donnée.
+Le rôle du controller va être de nous retourner une réponse par rapport à une route ou une requête donnée.
 
 Nous allons créer un controller avec maker, symfony va nous demander de lui donner un nom. Nous le nommerons BlogController tout simplement.
 
@@ -70,6 +70,6 @@ class BlogController
 }
 ```
 
-Symfony permet d'injecter automatique dans la méthode les classes dont nous avons besoin, si cela vous intéressse référez-vous à la documentation <https://symfony.com/doc/current/service_container/autowiring.html> 
+Symfony permet d'injecter automatiquement dans la méthode les classes dont nous avons besoin, si cela vous intéressse référez-vous à la documentation <https://symfony.com/doc/current/service_container/autowiring.html> 
 
-Pour la suite du cours nous utiliserons extends de Controller ainsi que leurs raccourcis mais je vous conseille de bosser comme l'exemple ci-dessus.
+Pour la suite du cours nous utiliserons extends de Controller ainsi que leurs raccourcis mais je vous conseille de travailler comme l'exemple ci-dessus.

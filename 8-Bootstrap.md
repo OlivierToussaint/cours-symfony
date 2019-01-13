@@ -2,11 +2,11 @@
 
 Document : <https://symfony.com/doc/current/form/bootstrap4.html>
 
-Pour relié notre blog au framework css bootstrap, nous allons devoir chercher bootstrap.css, pour facilité les choses nous allons prendre le CDN
+Pour relier notre blog au framework css bootstrap, nous allons devoir chercher bootstrap.css, pour faciliter les choses nous allons prendre le CDN
 
 https://www.bootstrapcdn.com
 
-Nous allons intégré cette ligne à notre balise <head> qui se trouve dans base.html.twig
+Nous allons intégrer cette ligne à notre balise <head> qui se trouve dans base.html.twig
 
 {% raw %} 
 ```twig
@@ -20,7 +20,7 @@ Nous allons intégré cette ligne à notre balise <head> qui se trouve dans base
 {% endraw %} 
 
 
-Nous allons après dans le fichier de configuration de twig qui ce trouve dans config/package/ rajouter cette ligne
+Nous allons après dans le fichier de configuration de twig qui se trouve dans config/package/ rajoutez cette ligne
  
 ```
     form_themes: ['bootstrap_4_layout.html.twig']
@@ -32,9 +32,9 @@ Pour faciliter la suite, nous allons la navbar de symfony. (<https://getbootstra
 
 On va prendre la première qui se trouve dans la documentation et rajouter cela dans notre base.html.twig
 
-Dans le menu du haut je souhaite avoir une page de présentation qui sera gérer dans `HomeController`, un liens vers la liste des Articles et un liens vers la liste des Catégories
+Dans le menu du haut je souhaite avoir une page de présentation qui sera gérée dans `HomeController`, un liens vers la liste des Articles et un lien vers la liste des Catégories
 
-Pour rentre le menu plus ergonomique, nous allons faire en sorte de rentrer active le menu sur lequel nous sommes actuellement
+Pour rendre le menu plus ergonomique, nous allons faire en sorte de rendre actif le menu sur lequel nous sommes actuellement
 
 ```twig
 <li class="nav-item {% if app.request.get('_route') == 'app_logout' %}active{% endif %}">
@@ -42,4 +42,4 @@ Pour rentre le menu plus ergonomique, nous allons faire en sorte de rentrer acti
 </li>
 ```
 
-Le `app.request.get('_route')` va nous permettre d'avoir le nom de la route actuel et si jamais il correspond à la route souhaiter alors nom mettons active dans la class du li
+Le `app.request.get('_route')` va nous permettre d'avoir le nom de la route actuelle et si jamais il correspond à la route souhaitée alors nom mettons active dans la class du li

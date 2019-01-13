@@ -27,7 +27,7 @@ Nous allons au fichier précréé `blog/index.html.twig` par maker
 ```
 {% endraw %}
  
-Nous retrouvons notre variable qui est `controller_name` qui est entourée d'accolade.
+Nous retrouvons notre variable qui est `controller_name` qui est entourée d'accolades.
 
 Nous pouvons observer différents `block`, c'est ce que l'on va trouver dans le fichier qu'il extend `base.html.twig`. Dans ce fichier il y a tout simplement la structure de base de notre site.
 

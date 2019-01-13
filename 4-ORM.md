@@ -198,9 +198,9 @@ class ArticleRepository extends ServiceEntityRepository
 On peut voir que par défaut nous pourrons utiliser quatre fonctions de recherche qui sont assez explicites. Le fichier créé par defaut nous livre aussi des exemples que nous pouvons faire avec query builder.
 
         
-Pour synchroniser notre base de donnée à notre entité, il va faire faire des migrations
+Pour synchroniser notre base de données à notre entité, il va faire faire des migrations
 
-Nous n'avons plus qu'a mettre à jour notre base de donnée
+Nous n'avons plus qu'à mettre à jour notre base de données
 
 ```php
 # php bin/console make:migration
@@ -215,7 +215,7 @@ ou
 
 A chaque modification dans l'entité nous appliquerons ces commandes
 
-Si jamais cette commande vous donne une erreur, c'est que votre liens avec la base de donnée (mysql surement) ne se fait pas.
+Si jamais cette commande vous donne une erreur, c'est que votre lien avec la base de données (mysql surement) ne se fait pas.
 
 Si vous travaillez en local et que le password de mysql est vide veillez procéder ainsi dans votre `.env` qui se trouve à la racine du projet
 

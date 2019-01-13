@@ -1,8 +1,8 @@
 ## Relier Article à Category
 
-Nous allons créer une nouvelle entité qui va ce nommer Category, pour ce faire nous allons utiliser ce que nous connaissons, le `make:entity` et le `make:crud`.
+Nous allons créer une nouvelle entité qui va se nommer Category, pour ce faire nous allons utiliser ce que nous connaissons, le `make:entity` et le `make:crud`.
 
-C'est le même procédé que nous avons utilisez juste avant.
+C'est le même procédé que nous avons utilisé juste avant.
 
 Je souhaite que dans l’entité category nous n’ayons que la variable name, au final notre entité devrait ressembler à cela sans les getters et setters :
 
@@ -80,7 +80,7 @@ What type of relationship is this?
   Success! 
 ```
 
-Nous n'avons plus qu'a mettre à jour notre base de donnée
+Nous n'avons plus qu'à mettre à jour notre base de données
 
 ```bash
 # php bin/console make:migration
@@ -93,7 +93,7 @@ ou
 # php bin/console doctrine:schema:update —force
 ```
 
-Il ne nous reste plus qu'a mettre à jour notre formulaire, rendons nous sur le `Form/ArticleType.php`
+Il ne nous reste plus qu'à mettre à jour notre formulaire, rendons-nous sur le `Form/ArticleType.php`
 
 ```php
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -108,7 +108,7 @@ Il ne nous reste plus qu'a mettre à jour notre formulaire, rendons nous sur le 
         ;
     }
 ```
-Nous rajoutons category qui est du Type Entity, nous allons voir dans la documentation pour connaitre les différents paramètre à lui fournir : <https://symfony.com/doc/current/reference/forms/types/entity.html>
+Nous rajoutons category qui est du Type Entity, nous allons voir dans la documentation pour connaitre les différents paramètres à lui fournir : <https://symfony.com/doc/current/reference/forms/types/entity.html>
 
-Nous pouvons voir qu'il faut lui donner le paramètre `class` pour le lié à notre entité Category, puis lui donner `choice_label` pour l'affichage dans notre select. Ce dernier paramètre est optionel si vous avez configurer l'appelle __toString() dans votre entité.
+Nous pouvons voir qu'il faut lui donner le paramètre `class` pour le lié à notre entité Category, puis lui donner `choice_label` pour l'affichage dans notre select. Ce dernier paramètre est optionel si vous avez configuré l'appelle __toString() dans votre entité.
 

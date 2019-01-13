@@ -1,12 +1,12 @@
 ## Security 
 
-Documentation lié.:<https://symfony.com/doc/current/security.html>
+Documentation liée.:<https://symfony.com/doc/current/security.html>
 
 Nous allons créer la partie sécurité qui va comporter trois parties.
 
-1. La partie de création de l'entity User associsié à sécurity pour l'encodage du password
+1. La partie de création de l'entity User associée à sécurity pour l'encodage du password
 2. La partie Authentification qui va nous permettre de se connecter sur le site
-3. La partie Register qui va nous permettre d'enregistré nos utilisateurs
+3. La partie Register qui va nous permettre d'enregistrer nos utilisateurs
 
 ```bash
 # php bin/console make:user
@@ -47,11 +47,11 @@ You should use Argon2i unless your production system will not support it.
 
 ```
 
-On peut voir que notre entité User implémente une interface (qui défini un 'contrat' avec cette dernière) des choses à implémenter au minimun.
+On peut voir que notre entité User implémente une interface (qui définit un 'contrat' avec cette dernière) des choses à implémenter au minimun.
 
-N.B. : Si jamais vous avez une version de Maria dB, ou Mysql qui n'accepte pas le format json, penser à passer `$role` en array.
+N.B. : Si jamais vous avez une version de Maria dB, ou Mysql qui n'accepte pas le format json, pensez à passer `$role` en array.
  
-Dans `security.yaml` le make:user nous a rajouté un provider et un encoder
+Dans `security.yaml` le make:user a rajouté un provider et un encoder
 
 ```yaml
     encoders:
@@ -96,7 +96,7 @@ Nous allons créer le formulaire de login et le guard pour gérer notre authenti
 
 ```
 
-Nous allons finir en mettant la redirection dans la méthode indiquer plus haut `onAuthenticationSuccess`
+Nous allons finir en mettant la redirection dans la méthode indiquée plus haut `onAuthenticationSuccess`
 
 ```
  public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
@@ -110,11 +110,11 @@ Nous allons finir en mettant la redirection dans la méthode indiquer plus haut 
     }
 ```
 
-Ici c'est un Service donc nous n'étendons pas de l'AbstractController, on ne peut pas utiliser le raccoursie `$this->redirectToRoute('nomdelaroute'). 
+Ici c'est un Service donc nous n'étendons pas de l'AbstractController, on ne peut pas utiliser le raccourci `$this->redirectToRoute('nomdelaroute'). 
 
 Nous pouvons copier coller la ligne commenter juste au dessus `return new RedirectResponse($this->router->generate('some_route'));`
 
-Dans le fichier de configuration de security.yaml, le lieux se fait par `guard`
+Dans le fichier de configuration de security.yaml, le lieu se fait par `guard`
 
 ```
             guard:
@@ -152,7 +152,7 @@ Nous allons créer un formulaire pour créer nos utilisateurs
 
 ```
 
-Nous allons regarder le controller de plus pret
+Nous allons regarder le controller de plus près
 
 ```
 /**
@@ -193,14 +193,14 @@ Nous allons regarder le controller de plus pret
     }
 ```
     
-Il y a pas mal de nouvelle chose dans ce formulaire, on peut voir que nous utilisons `UserPasswordEncoderInterface` pour encoder le password donner dans le formulaire.
+Il y a pas mal de nouvelles choses dans ce formulaire, on peut voir que nous utilisons `UserPasswordEncoderInterface` pour encoder le password donner dans le formulaire.
 
-Nous repassons par le `guardHandler` pour retourner la même route que l'on que nous nous connectons.
+Nous passons par le `guardHandler` en injection de dépendance pour nous permettre de récupérer la route de la méthode `authenticateUserAndHandleSuccess`
 
-Grace à ces trois commandes, symfony nous a permis d'initialiser un système d'authentification d'utiliser presque clé en main, à nous d'analyser ce dernier pour voir ce qu'il y a dedans. **Le fait d'utiliser des outils qui nous facilite la vie, n'exclu pas de comprendre ces derniers.**
+Grace à ces trois commandes, symfony nous a permis d'initialiser un système d'authentification et de l'utiliser presque clé en main, à nous d'analyser ce dernier pour voir ce qu'il y a dedans. **Le fait d'utiliser des outils qui nous facilitent la vie, n'exclut pas de comprendre ces derniers.**
 
 ---
 Pour continuer dans notre projet, nous allons laisser la possibilité d'attacher un utilisateur (User) à un article.
 
-Il suffira de mettre à jour notre entité Article comme nous lavons fait avec Category 
+Il suffira de mettre à jour notre entité Article comme nous l'avons fait avec Category 
 

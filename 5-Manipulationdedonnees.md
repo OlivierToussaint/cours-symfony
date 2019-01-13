@@ -1,6 +1,6 @@
 ## Manipulation de données 
 
-Après avoir créer notre entité à l'affichage.
+Après avoir créé notre entité à l'affichage.
 
 
 Symfony va nous simplifier la vie en initialisant les différents fichiers pour faire un crud (Created, Read, Update, Delete)
@@ -116,7 +116,7 @@ class ArticleController extends AbstractController
 ```
 
 
-Après avoir créer nos fichiers, nous allons nous intéresser aux nouvelles fonctions qui sont: `new`, `edit`, `delete`
+Après avoir créé nos fichiers, nous allons nous intéresser aux nouvelles fonctions qui sont: `new`, `edit`, `delete`
 
 ```php
 	/**
