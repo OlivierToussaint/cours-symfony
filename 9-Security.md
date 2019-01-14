@@ -50,6 +50,7 @@ You should use Argon2i unless your production system will not support it.
 On peut voir que notre entité User implémente une interface (qui définit un 'contrat' avec cette dernière) des choses à implémenter au minimun.
 
 N.B. : Si jamais vous avez une version de Maria dB, ou Mysql qui n'accepte pas le format json, pensez à passer `$role` en array.
+
  
 Dans `security.yaml` le make:user a rajouté un provider et un encoder
 
@@ -64,6 +65,27 @@ Dans `security.yaml` le make:user a rajouté un provider et un encoder
                 property: email
 ```
 
+Nous allons modifier notre entité `User` pour qu'il puisse avoir par defaut le role `ROLE_USER`
+
+Nous allons rajouter en haut de l'entité deux constantes, puis plus bas dans le construct initialisé la variable `roles` : 
+
+```php
+class User implements UserInterface
+{
+    public const ROLE_USER = 'ROLE_USER';
+    public const ROLE_ADMIN = 'ROLE_ADMIN';
+    
+    ...
+        
+    public function __construct()
+    {
+        $this->roles = [self::ROLE_USER];
+    
+```
+
+Tout nouveau utilisateur aura pour role `ROLE_USER`
+
+--
 
 Nous allons créer le formulaire de login et le guard pour gérer notre authentification
 
@@ -124,6 +146,7 @@ Dans le fichier de configuration de security.yaml, le lieu se fait par `guard`
 
 Ce qui se trouve dans le controller Security est assez classique, je vous laisse allez regarder ce qu'il a dedans.
 
+--
 Nous allons créer un formulaire pour créer nos utilisateurs
 
 
@@ -202,5 +225,56 @@ Grace à ces trois commandes, symfony nous a permis d'initialiser un système d'
 ---
 Pour continuer dans notre projet, nous allons laisser la possibilité d'attacher un utilisateur (User) à un article.
 
-Il suffira de mettre à jour notre entité Article comme nous l'avons fait avec Category 
+Il suffira de mettre à jour notre entité `Article` comme nous l'avons fait avec `Category` avec `make:entity`, rajouter le champ `User` et lui dire que c'est une relation ``ManyToOne` avec l'entité `User`
+
+Mettre à jour votre base de donnée.
+
+Puis nous allons rajouter une ligne dans dans notre controlleur `Article` sur la méthode `new`, nous allons utiliser `$this->getUser()` pour nous permettre d'ajouter l'utilisateur connecter à l'article.
+
+```php
+ 		if ($form->isSubmitted() && $form->isValid()) {
+ 				// Nous lions l'utilisateur connecter à l'article créé
+ 				$article->setUser($this->getUser());
+            
+            	$entityManager = $this->getDoctrine()->getManager();
+            	$entityManager->persist($article);
+            	$entityManager->flush();
+
+            	return $this->redirectToRoute('article_index');
+        }
+```
+
+Par la suite nous allons restreindre les accès aux méthodes `new`,`edit` à l'aide de l'annotation `@isGranted`. Rien ne plus simple nous allons le rajouter en annotations.
+
+```
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
+...
+
+    /**
+     * @Route("/new", name="article_new", methods={"GET","POST"})
+     * @isGranted("ROLE_USER")
+     */
+     
+```
+Si jamais nous ne sommes pas connecter avec une utilisateur qui à dans son tableau de role `ROLE_USER`, j'aurais automatiquement un accès denied ou une redirection vers le formulaire de login si je ne suis pas connecté.
+
+Pour les besoins de la suite nous allons faire un crud sur l'entité `User` et nous rajouterons dans la navbar un liens vers l'index.
+
+Nous souhaitons pouvoir modifier les roles d'un utilisateur pour ce faire nous allons éditer le formulaire qui est `Form\UserType.php`. Par default c'est un champs text, nous souhaitons que ce soit une select multiple.
+
+Nous allons supprimer le champs password et modifier le champ roles
+
+```php
+	->add('roles', ChoiceType::class, [
+	                'choices' => [
+	                    'Administrateur' => User::ROLE_ADMIN,
+	                    'Utilisateur' => User::ROLE_USER,
+	                ],
+	                'multiple' => true,
+	                'required' => true,
+	            ])
+```
+
+Si nous retournons sur l'interface, nous pouvons observé la possibilité d'attribué plusieurs ROLE à un utilisateur.
 
