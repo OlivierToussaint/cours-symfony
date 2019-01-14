@@ -10,6 +10,6 @@ Voici le dérouler de mon cours / TP que je fais avec mes élèves :
 ### [Comment utiliser les formulaires](6-Form.md)
 ### [Créer une relation](7-Relation.md)
 ### [Intégrer bootstrap](8-Bootstrap.md)
-### [La sécurité et son initilisation](9-Securite.md)
+### [La sécurité et son initilisation](9-Security.md)
 ### [Envoyer un email en utilisant EventDispatcher](10-Event.md)
 ### [Remplir notre base avec des fixtures](11-Fixture.md)
