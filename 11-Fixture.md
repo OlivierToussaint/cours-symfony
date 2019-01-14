@@ -4,25 +4,26 @@ Pour permettre à un nouveau développeur d'intégrer le projet vite et de lui p
 
 Il va permettre de définir un jeu de donnée initiale
 
-```
-~> composer require --dev doctrine/doctrine-fixtures-bundle
+```bash
+# composer require --dev doctrine/doctrine-fixtures-bundle
 ```
 Une fois installé nous allons l'initialisé avec make
 
-```
-~> php bin/console make:fixtures
+```bash
+# php bin/console make:fixtures
 ```
 
 Nous l'appelerons AppFixtures dedans nous allons mettre des données par defaut
 
-```
+```php
     public function load(ObjectManager $manager)
     {
-        $author = new User();
-        $author->setEmail('john@doe.fr');
-        $author->setPassword('password');
-        $author->setName('John Doe');
-        $author->setUsername('john doe');
+        $user = new User();
+        $user->setEmail('john@doe.fr');
+        $user->setPassword('password');
+        $user->setRoles(['ROLE_USER'])
+        $user->setName('John Doe');
+        $user->setUsername('john doe');
         $manager->persist($user);
 
         $article = new Article();
