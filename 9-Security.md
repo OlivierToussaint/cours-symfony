@@ -120,7 +120,7 @@ Nous allons créer le formulaire de login et le guard pour gérer notre authenti
 
 Nous allons finir en mettant la redirection dans la méthode indiquée plus haut `onAuthenticationSuccess`
 
-```
+```php
  public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {
         if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
@@ -177,7 +177,7 @@ Nous allons créer un formulaire pour créer nos utilisateurs
 
 Nous allons regarder le controller de plus près
 
-```
+```php
 /**
      * @Route("/register", name="app_register")
      */
@@ -246,7 +246,7 @@ Puis nous allons rajouter une ligne dans dans notre controlleur `Article` sur la
 
 Par la suite nous allons restreindre les accès aux méthodes `new`,`edit` à l'aide de l'annotation `@isGranted`. Rien ne plus simple nous allons le rajouter en annotations.
 
-```
+```php
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 ...
