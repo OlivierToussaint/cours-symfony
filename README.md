@@ -11,5 +11,6 @@ Voici le dérouler de mon cours / TP que je fais avec mes élèves :
 ### [Créer une relation](7-Relation.md)
 ### [Intégrer bootstrap](8-Bootstrap.md)
 ### [La sécurité et son initilisation](9-Security.md)
-### [Envoyer un email en utilisant EventDispatcher](10-Event.md)
-### [Remplir notre base avec des fixtures](11-Fixture.md)
+### [Remplir notre base avec des fixtures](10-Fixture.md)
+### [Finition du blog](11-Finition)
+### [Envoyer un email en utilisant EventDispatcher](12-Event.md)
