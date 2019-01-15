@@ -146,6 +146,32 @@ Dans le fichier de configuration de security.yaml, le lieu se fait par `guard`
 
 Ce qui se trouve dans le controller Security est assez classique, je vous laisse allez regarder ce qu'il a dedans.
 
+Maintenant que nous pouvons nous connectez, il va falloir aussi nous déconnecter.
+
+Nous allons créer une méthode dans `SecurityController` qui va nous permettre de déclarer une route pour ce déconnecter
+
+```php
+    /**
+     * @Route("/logout", name="app_logout")
+     */
+    public function logout()
+    {
+    }
+```
+
+Cette methode est vide elle nous permet seulement de déclarer la route pour permettre de la mettre dans le fichier de configuration de security. Juste en dessous de guard nous allons rajouter le liens de logout :
+
+```yaml
+            guard:
+                authenticators:
+                    - App\Security\AppCustomAuthenticator
+
+            logout:
+              path:   app_logout
+```
+
+Ce liens permettra à symfony de gérer la destruction de la session et des cookies associé.
+
 --
 Nous allons créer un formulaire pour créer nos utilisateurs
 
