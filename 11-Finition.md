@@ -65,6 +65,27 @@ Dans notre menu, nous ne souhaitons pas que l'utilisateur anonyme ou bien l'util
 ```
 {% endraw %} 
 
+Je vais rajouter une date dans mon article pour savoir à quel moment il a été poster. Je mets à jour avec `make:entity` et je créais la variable `createAt`, je la définie comme datetime
+
+A partir de ce moment il y a deux méthodes pour la définir, soit dans la méthode `new` de `ArticleController`, soit dans le `__construct` de l'entité `Article`
+
+Controller/ArticleController.php
+```php
+	$article->setCreateAt(new \DateTime('now'));
+	$entityManager = $this->getDoctrine()->getManager();
+	$entityManager->persist($article);
+	$entityManager->flush();
+```
+ou
+
+Entity/Article.php
+```php
+    public function __construct()
+    {
+        $this->createAt = new \DateTime('now');
+    }
+```
+
 Enfin nous allons faire notre partie frontend dans notre `HomeController`, nous définissons deux méthodes `index` et `show`, le premier pour faire la liste des articles de notre blog, le deuxième pour voir le contenu en detail d'un article.
 
 ```php
