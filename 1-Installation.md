@@ -1,6 +1,15 @@
-## Installation
+## L'environnement 
 
-Nous allons dans un premier temps ouvrir la console. Nous allons à la racine du dossier qui va nous servir pour notre exercice:
+Sur votre poste de travail, il faut vérifier que composer et php sont installés
+ 
+```bash
+# composer -v
+# php -v
+```
+
+## Installation 
+
+Nous allons ouvrir la console, et taper les lignes suivants dans notre dossier de travail :
 
 ```bash
 # composer create-projet symfony/website-skeleton blog
@@ -9,13 +18,13 @@ Nous allons dans un premier temps ouvrir la console. Nous allons à la racine du
 À partir de ce moment-là nous avons la structure de notre futur projet symfony.
 Regardons cela de plus près:
 
-* **Bin** : On y trouve le fichier console & phpunit, nous reviendrons très vite sur l’utilisation de console.
+* **Bin** : On y trouve le fichier console & phpunit, nous reviendrons sur l’utilisation du fichier console.
 
 * **Config** : On y trouve tous les fichiers de configuration du framework que ce soit pour votre environnement de production ou bien de développement.
 
-* **Public** : On y trouve tous vos fichiers dits public, c’est-à-dire accessible par le navigateur. Il Comporte donc un index.php qui va s’occuper de rooter vos données, vos fichiers css, js, et images.
+* **Public** : On y trouve tous vos fichiers publics, c’est-à-dire accessible par le navigateur. Il Comportebun index.php qui va s’occuper de rooter vos données, vos fichiers css, js, et images.
 
-* **Src** : Le répertoire qui contiendra vos controllers, vos entités et vos services.
+* **Src** : Le répertoire contiendra vos controllers, vos entités et vos services.
 
 * **Templates** : On y trouve tous les fichiers de twig.
 
