@@ -8,7 +8,7 @@ Nous allons créer un controller avec maker, symfony va nous demander de lui don
 # php bin/console make:controller
 ```
 
-Une fois cette commande faite nous pouvons observer qu’il crée deux fichiers: un fichier dans src/Controller et un autre dans ce nouveau dossier qui est template.
+Une fois cette commande faite nous pouvons observer qu’il crée deux fichiers: un fichier dans src/Controller et un autre dans /template.
 
 Nous allons regarder notre nouveau controller:
 
@@ -35,15 +35,13 @@ class BlogController extends AbstractController
 
 Au-dessus de la méthode index, nous pouvons observer une annotation qui est @Route (<https://symfony.com/doc/current/routing.html>), elle permet de définir la route d'accès à notre méthode. 
 
-Dans cet exemple nous voyons que ce controller nous renvoie un templates html avec en paramètre ```controller_name```. 
+La valeur de retour de ce controller est un templates html avec en paramètre ```controller_name```. 
 
-Symfony nous a mâché le travail, du coup notre BlogController extend de Controller ce qui permet des raccourcis tels que `$this->render`. Elle permet directement de retourner le rendu de notre template twig en lui passant différents paramètres. 
-
-Nous y reviendrons dans notre controller, dans la partie ORM.
+Symfony nous mâche le travail, notre BlogController extend de Controller ce qui permet des raccourcis tels que `$this->render`. Elle permet directement de retourner le rendu de notre template twig en lui passant différents paramètres. 
 
 ---
-### Pour le futur
-Sans extends nous aurions pu écrire cette méthode comme cela.
+### Injection de dépendance et autowiring
+Sans extends nous pouvons écrire notre Controlleur de la manière suivante
 
 ```php
 namespace App\Controller;
@@ -72,4 +70,4 @@ class BlogController
 
 Symfony permet d'injecter automatiquement dans la méthode les classes dont nous avons besoin, si cela vous intéressse référez-vous à la documentation <https://symfony.com/doc/current/service_container/autowiring.html> 
 
-Pour la suite du cours nous utiliserons extends de Controller ainsi que leurs raccourcis mais je vous conseille de travailler comme l'exemple ci-dessus.
+Pour la suite du cours nous utiliserons extends de Controller.
