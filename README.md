@@ -1,5 +1,12 @@
 # Cours symfony - TP
 
+Nouvelle version (11/2019):
+
+### [Découverte de symfony](Symfony.md)
+
+
+Archive (01/2019) :
+
 Voici le dérouler de mon cours / TP que je fais avec mes élèves :
 
 ### [Installation de symfony](1-Installation.md)
