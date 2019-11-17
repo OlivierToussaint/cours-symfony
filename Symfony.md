@@ -148,20 +148,7 @@ Nous allons au fichier précréé `home/index.html.twig` par maker
 {% block title %}Hello {{ controller_name }}!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! </h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'src/Controller/AuthorController.php'|file_link(0) }}">src/Controller/AuthorController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'templates/author/index.html.twig'|file_link(0) }}">templates/author/index.html.twig</a></code></li>
-    </ul>
-</div>
+ ...
 {% endblock %}
 ```
 {% endraw %}
@@ -217,9 +204,12 @@ Pour récuperer les données POST & GET nous allons utiliser l'objet Request de 
 ```
 Dans le twig nous allons rajouter l'affichage de cette variable
 
-```
+{% raw %} 
+```twig
 {{ variable }}
 ```
+{% endraw %}
+
 
 Si nous accédons à l'url avec le paramêtre ```$_GET``` : https://localhost/home?variable=test, la variable est affiché dans le template.
 
