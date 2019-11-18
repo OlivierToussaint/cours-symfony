@@ -517,7 +517,7 @@ Pour rentrer des exemples en base, je vais appeler une route qui va enregistrer 
 
 
 ```php
-	 /**
+	/**
      * @Route("/article/ajout", name="add_article")
      */
     public function add()
@@ -534,3 +534,35 @@ Pour rentrer des exemples en base, je vais appeler une route qui va enregistrer 
         return new Response('🥳');
     }
 ```
+
+Maintenant que nous avons une base avec des données, je vais les affichés :
+
+```php
+	/**
+     * @Route("/articles", name="articles")
+     */
+    public function index(ArticleRepository $articleRepository)
+    {
+        $articles = $articleRepository->findAll();
+
+        return $this->render('article/index.html.twig', [
+            'articles' => $articles
+        ]);
+    }
+```
+
+Puis rajouter une route pour voir le détail d'un article
+
+```php
+ 	/**
+     * @Route("/article/{id}", name="show_article")
+     */
+    public function show(Article $article)
+    {
+        return $this->render('article/show.html.twig', [
+            'article' => $article
+        ]);
+    }
+```
+
+Ici symfony va faire automatiquement le liens entre ```{id}``` et l'entity ```Article```
