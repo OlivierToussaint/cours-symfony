@@ -26,7 +26,7 @@ Composer version 1.9.0
 Nous allons ouvrir la console, et taper les lignes suivants dans notre dossier de travail :
 
 ```bash
-# composer create-projet symfony/website-skeleton mon-projet
+# composer create-project symfony/website-skeleton mon-projet
 ```
 
 À partir de ce moment-là nous avons la structure de notre futur projet symfony.
