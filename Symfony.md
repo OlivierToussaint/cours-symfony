@@ -4,11 +4,10 @@ Sur votre poste de travail, il faut vérifier que composer et php sont installé
  
 ```bash
 # php -v
-PHP 7.3.11 (cli) (built: Oct 24 2019 11:29:00) ( NTS )
-Copyright (c) 1997-2018 The PHP Group
-Zend Engine v3.3.11, Copyright (c) 1998-2018 Zend Technologies
-    with Xdebug v2.7.2, Copyright (c) 2002-2019, by Derick Rethans
-    with Zend OPcache v7.3.11, Copyright (c) 1999-2018, by Zend Technologies
+PHP 7.4.12 (cli) (built: Oct 29 2020 18:37:21) ( NTS )
+Copyright (c) The PHP Group
+Zend Engine v3.4.0, Copyright (c) Zend Technologies
+    with Zend OPcache v7.4.12, Copyright (c), by Zend Technologies
 ```
 ```bash
 # composer -v
@@ -18,7 +17,7 @@ Zend Engine v3.3.11, Copyright (c) 1998-2018 Zend Technologies
 / /___/ /_/ / / / / / / /_/ / /_/ (__  )  __/ /
 \____/\____/_/ /_/ /_/ .___/\____/____/\___/_/
                     /_/
-Composer version 1.9.0 
+Composer version 2.0.4 2020-10-30 22:39:11
 ```
 
 ## Installation 
@@ -59,9 +58,7 @@ Nous allons ensuite démarrer notre serveur de développement avec deux commande
 ```bash
 # php -S 127.0.0.1:8000 -t public
 ```
-```bash
-# php bin/console server:run
-```
+
 On peut utiliser le binary de symfony disponible sur le site officiel ou bien un environnement docker
 
 
